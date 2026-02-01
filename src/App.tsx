@@ -26,7 +26,7 @@ function App() {
           [<a href="https://github.com/pufanyi" target="_blank" rel="noopener noreferrer">GitHub</a>]
           [<a href="https://scholar.google.com/citations?user=58tv6skAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>]
           [<a href="https://linkedin.com/in/pufanyi" target="_blank" rel="noopener noreferrer">LinkedIn</a>]
-          [<a href="https://twitter.com/pufanyi" target="_blank" rel="noopener noreferrer">Twitter</a>]
+          [<a href="https://x.com/pufanyi" target="_blank" rel="noopener noreferrer">X</a>]
         </div>
       </header>
 
