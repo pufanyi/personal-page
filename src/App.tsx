@@ -5,13 +5,15 @@ function App() {
     <div className="paper">
       {/* Title Block with NeurIPS-style horizontal rules */}
       <header className="title-block">
-        <hr className="title-rule-top" />
-        <h1 className="title">Fanyi Pu (濮凡轶)</h1>
-        <hr className="title-rule-bottom" />
+        <div className="title-wrapper">
+          <hr className="title-rule-top" />
+          <h1 className="title">Fanyi Pu (濮凡轶)</h1>
+          <hr className="title-rule-bottom" />
+        </div>
 
         <img src="/me.webp" alt="Fanyi Pu" className="author-photo" />
         <div className="affiliation">
-          School of Computer Science and Engineering<br />
+          College of Computing and Data Science<br />
           Nanyang Technological University, Singapore
         </div>
         <div className="contact-info">
@@ -33,12 +35,26 @@ function App() {
         <h2 className="abstract-heading">Abstract</h2>
         <div className="abstract-content">
           <p>
-            I am a final-year undergraduate student at Nanyang Technological University (NTU),
-            majoring in Data Science and Artificial Intelligence (Expected Honours with Highest Distinction).
-            My research interests lie in <em>Spatial Intelligence</em> and <em>Unified Multimodal Models</em>.
-            I am a core member of <a href="https://www.lmms-lab.com/" target="_blank" rel="noopener noreferrer">LMMs-Lab</a> and
-            currently a research intern at <a href="https://www.sensetime.com/en" target="_blank" rel="noopener noreferrer">SenseTime Research</a>.
-            My work has accumulated <strong>1300+ Google Scholar citations</strong>.
+            I am currently a final-year undergraduate student at <a href="https://www.ntu.edu.sg/" target="_blank" rel="noopener noreferrer">Nanyang Technological University</a>,
+            specializing in <a href="https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-science-in-data-science-artificial-intelligence" target="_blank" rel="noopener noreferrer">Data Science and Artificial Intelligence</a>.
+          </p>
+          <p>
+            I am currently doing research at <a href="https://www.sensetime.com/en" target="_blank" rel="noopener noreferrer">SenseTime</a> and <a href="https://www.mmlab-ntu.com/" target="_blank" rel="noopener noreferrer">MMLab@NTU</a>.
+            I am fortunate to be supervised by <a href="https://liuziwei7.github.io/" target="_blank" rel="noopener noreferrer">Prof. Ziwei Liu</a>,
+            I am also grateful for the extensive help I have received from <a href="https://brianboli.com/" target="_blank" rel="noopener noreferrer">Bo Li</a>,
+            {' '}<a href="https://caizhongang.com/" target="_blank" rel="noopener noreferrer">Zhongang Cai</a> and <a href="https://scholar.google.com/citations?user=jZH2IPYAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Lei Yang</a>.
+            My research interests currently lie in <em>multi-modality (unified) models</em> and <em>spatial intelligence</em>.
+          </p>
+          <p>
+            During my time at <a href="http://www.sxyz.net/" target="_blank" rel="noopener noreferrer">Shaoxing No.1 High School</a>,
+            I participated in the <a href="https://www.noi.cn/" target="_blank" rel="noopener noreferrer">Olympiad in Informatics</a>.
+            Additionally, I competed in the <a href="https://icpc.global/" target="_blank" rel="noopener noreferrer">ICPC</a> competition,
+            where I earned a <a href="/assets/pdf/awards/Kunming.pdf" target="_blank" rel="noopener noreferrer">gold medal</a> in the 2022 Kunming Asia Regional Contest
+            and a <a href="/assets/pdf/awards/Nanjing.pdf" target="_blank" rel="noopener noreferrer">silver medal</a> in the 2022 Nanjing Asia Regional Contest.
+            I am a contributor to the <a href="https://ntu-icpc.github.io/npc/" target="_blank" rel="noopener noreferrer">Nanyang Programming Contest</a>.
+          </p>
+          <p>
+            I like to play chess, my Lichess ID is <a href="https://lichess.org/@/pufanyi" target="_blank" rel="noopener noreferrer">@pufanyi</a>, my current rating is 2086 (rapid).
           </p>
         </div>
         <div className="keywords">

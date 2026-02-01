@@ -1,20 +1,11 @@
 :root {
-  --text-color: #000;
-  --link-color: #a00;
+  --text-color: #222;
+  --text-secondary: #555;
+  --link-color: #0066cc;
+  --border-color: #000;
   --background: #fff;
-  --font-main: "Computer Modern Serif", "Latin Modern Roman", "Times New Roman", serif;
-  --font-sans: "Computer Modern Sans", "Latin Modern Sans", sans-serif;
+  --font-main: "Computer Modern Serif", "Latin Modern Roman", Georgia, "Times New Roman", serif;
   --font-mono: "Computer Modern Typewriter", "Courier New", monospace;
-
-  /* Responsive font sizes */
-  --font-size-base: clamp(12pt, 1.5vw, 14pt);
-  --font-size-small: clamp(10pt, 1.2vw, 12pt);
-  --font-size-title: clamp(20pt, 3vw, 28pt);
-  --font-size-section: clamp(14pt, 1.8vw, 16pt);
-  --font-size-subsection: clamp(12pt, 1.5vw, 14pt);
-
-  /* Spacing */
-  --spacing-unit: clamp(8pt, 1.5vw, 12pt);
 }
 
 * {
@@ -24,17 +15,21 @@
 }
 
 html {
-  font-size: var(--font-size-base);
+  font-size: 15px;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
 }
 
 body {
   font-family: var(--font-main);
-  font-size: var(--font-size-base);
-  line-height: 1.35;
+  font-size: 1rem;
+  line-height: 1.6;
   color: var(--text-color);
   background: var(--background);
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -44,14 +39,6 @@ a {
 
 a:hover {
   text-decoration: underline;
-}
-
-strong, b {
-  font-weight: bold;
-}
-
-em, i {
-  font-style: italic;
 }
 
 ::selection {
