@@ -49,6 +49,34 @@ pnpm build
 
 The output will be in the `dist` directory.
 
+### Production Optimizations
+
+The build includes aggressive compression:
+
+- **Terser** minification with `drop_console`, multi-pass compression
+- **Brotli** (level 11) - generates `.br` files, ~14% smaller than Gzip
+- **Gzip** (level 9) - generates `.gz` files as fallback
+- **LightningCSS** for CSS minification
+
+## Deployment
+
+### Cloudflare Pages (Recommended)
+
+Cloudflare automatically serves `.br` files when available.
+
+### Nginx
+
+Add to your config to serve pre-compressed files:
+
+```nginx
+brotli_static on;
+gzip_static on;
+```
+
+### Vercel / Netlify
+
+These platforms handle compression automatically.
+
 ## Preview
 
 Preview the production build locally:
@@ -75,6 +103,8 @@ src/
 ├── index.css            # Global styles
 └── components/
     ├── index.ts         # Component exports
+    ├── Section.tsx      # Reusable section wrapper
+    ├── Entry.tsx        # Reusable entry component
     ├── Header.tsx       # Title, photo, and contact info
     ├── Abstract.tsx     # Personal introduction
     ├── Education.tsx    # Education background
