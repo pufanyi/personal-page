@@ -1,8 +1,8 @@
+import Section from './Section'
+
 function Competitions() {
   return (
-    <section className="section">
-      <h2 className="section-heading">4 &nbsp; Competitions</h2>
-
+    <Section number={4} title="Competitions">
       <h3 className="subsection-heading">4.1 &nbsp; ICPC (International Collegiate Programming Contest)</h3>
       <ul className="itemize">
         <li><strong>Ranked 22nd</strong>, ICPC Asia Pacific Championship, 2024</li>
@@ -16,7 +16,7 @@ function Competitions() {
       <ul className="itemize">
         <li><strong>Best-in-University Prize</strong>, Nanyang Technological University, Dec 2022</li>
       </ul>
-    </section>
+    </Section>
   )
 }
 
