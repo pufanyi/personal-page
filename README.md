@@ -1,73 +1,91 @@
-# React + TypeScript + Vite
+# Fanyi Pu - Personal Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A personal academic homepage built with React, TypeScript, and Vite.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React 19
+- TypeScript
+- Vite 7
+- ESLint
 
-## React Compiler
+## Prerequisites
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Node.js (v18 or higher recommended)
+- pnpm
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. Clone the repository:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/pufanyi/personal-page.git
+cd personal-page
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Install dependencies:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+pnpm install
 ```
+
+## Development
+
+Start the development server:
+
+```bash
+pnpm dev
+```
+
+The site will be available at `http://localhost:5173`.
+
+## Build
+
+Build for production:
+
+```bash
+pnpm build
+```
+
+The output will be in the `dist` directory.
+
+## Preview
+
+Preview the production build locally:
+
+```bash
+pnpm preview
+```
+
+## Linting
+
+Run ESLint to check code quality:
+
+```bash
+pnpm lint
+```
+
+## Project Structure
+
+```
+src/
+├── App.tsx              # Main application component
+├── App.css              # Styles
+├── main.tsx             # Entry point
+├── index.css            # Global styles
+└── components/
+    ├── index.ts         # Component exports
+    ├── Header.tsx       # Title, photo, and contact info
+    ├── Abstract.tsx     # Personal introduction
+    ├── Education.tsx    # Education background
+    ├── Publications.tsx # Publications and research
+    ├── Experience.tsx   # Work experience
+    ├── Competitions.tsx # Competition achievements
+    ├── Teaching.tsx     # Teaching activities
+    ├── Miscellaneous.tsx# Hobbies and other info
+    └── Footer.tsx       # Footer with last updated date
+```
+
+## License
+
+MIT
