@@ -260,17 +260,9 @@
   opacity: 0.7;
 }
 
+/* Base: hidden */
 .toc {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 260px;
-  height: 100vh;
-  background: var(--paper-bg);
-  padding: 4rem 1.5rem 2rem;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.15);
-  z-index: 1000;
-  overflow-y: auto;
+  display: none;
   font-size: 0.8rem;
   line-height: 1.5;
 }
@@ -321,6 +313,35 @@
   inset: 0;
   background: rgba(0, 0, 0, 0.3);
   z-index: 999;
+}
+
+/* Wide screens: clean sidebar to the left of paper */
+@media (min-width: 1301px) {
+  .toc--open {
+    display: block;
+    position: fixed;
+    top: 4rem;
+    left: calc((100vw - 900px) / 2 - 230px);
+    width: 200px;
+    z-index: 100;
+  }
+}
+
+/* Narrow screens: drawer overlay */
+@media (max-width: 1300px) {
+  .toc--open {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 100vh;
+    background: var(--paper-bg);
+    padding: 4rem 1.5rem 2rem;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    overflow-y: auto;
+  }
 }
 
 /* ========== Mobile ========== */
