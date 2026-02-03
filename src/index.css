@@ -4,8 +4,20 @@
   --link-color: #0066cc;
   --border-color: #000;
   --background: #fff;
+  --paper-bg: #fff;
+  --paper-shadow: none;
   --font-main: "Computer Modern Serif", "Latin Modern Roman", Georgia, "Times New Roman", serif;
   --font-mono: "Computer Modern Typewriter", "Courier New", monospace;
+}
+
+[data-theme="dark"] {
+  --background: #1a1a1a;
+  --paper-bg: #262626;
+  --text-color: #e0e0e0;
+  --text-secondary: #aaa;
+  --link-color: #6db3f2;
+  --border-color: #555;
+  --paper-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
 }
 
 * {
@@ -16,6 +28,7 @@
 
 html {
   font-size: 15px;
+  scroll-behavior: smooth;
 }
 
 @media (max-width: 768px) {
@@ -30,23 +43,7 @@ body {
   line-height: 1.6;
   color: var(--text-color);
   background: var(--background);
-}
-
-a {
-  color: var(--link-color);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-::selection {
-  background: #b4d5fe;
-}
-
-html {
-  scroll-behavior: smooth;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 a {
@@ -59,9 +56,70 @@ a:hover {
   text-decoration: underline;
 }
 
+::selection {
+  background: #b4d5fe;
+}
+
+[data-theme="dark"] ::selection {
+  background: #2a5a8e;
+}
+
+/* ========== Print Styles ========== */
 @media print {
+  :root {
+    --text-color: #222;
+    --text-secondary: #555;
+    --link-color: #222;
+    --border-color: #000;
+    --background: #fff;
+    --paper-bg: #fff;
+    --paper-shadow: none;
+  }
+
   body {
     background: white;
     color: black;
+    font-size: 11pt;
+  }
+
+  .toolbar,
+  .toc,
+  .toc-mobile-toggle,
+  .toc-backdrop {
+    display: none !important;
+  }
+
+  .paper {
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  @page {
+    margin: 2cm 2.5cm;
+    size: A4;
+  }
+
+  .entry {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .section-heading,
+  .subsection-heading {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  a {
+    color: #222;
+    text-decoration: underline;
+  }
+
+  * {
+    transition: none !important;
   }
 }

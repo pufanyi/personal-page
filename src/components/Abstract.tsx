@@ -1,6 +1,6 @@
 function Abstract() {
   return (
-    <section className="abstract">
+    <section className="abstract" id="abstract">
       <h2 className="abstract-heading">Abstract</h2>
       <div className="abstract-content">
         <p>
