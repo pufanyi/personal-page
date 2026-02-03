@@ -10,7 +10,7 @@ function Publications() {
         detail={
           <>
             Preprint, Co-first author{' '}
-            <span className="links">
+            <span className="publication-links">
               [<a href="#" target="_blank" rel="noopener noreferrer">Paper</a>]
               [<a href="#" target="_blank" rel="noopener noreferrer">Project Page</a>]
             </span>
@@ -27,7 +27,7 @@ function Publications() {
         detail={
           <>
             NAACL (Findings), Co-first author{' '}
-            <span className="links">
+            <span className="publication-links">
               [<a href="https://arxiv.org/abs/2407.12772" target="_blank" rel="noopener noreferrer">Paper</a>]
               [<a href="https://lmms-lab.github.io/lmms-eval-blog/lmms-eval-0.1/" target="_blank" rel="noopener noreferrer">Project Page</a>]
             </span>
@@ -46,7 +46,7 @@ function Publications() {
         detail={
           <>
             Preprint, Third Author{' '}
-            <span className="links">
+            <span className="publication-links">
               [<a href="https://arxiv.org/abs/2410.13764" target="_blank" rel="noopener noreferrer">Paper</a>]
               [<a href="https://video-mmmu.github.io/" target="_blank" rel="noopener noreferrer">Project Page</a>]
             </span>
@@ -81,7 +81,7 @@ function Publications() {
         detail={
           <>
             IEEE TPAMI, Co-first author{' '}
-            <span className="links">
+            <span className="publication-links">
               [<a href="https://arxiv.org/abs/2306.05425" target="_blank" rel="noopener noreferrer">Paper</a>]
               [<a href="https://github.com/Luodian/Otter" target="_blank" rel="noopener noreferrer">Project Page</a>]
             </span>
@@ -109,7 +109,7 @@ function Publications() {
         detail={
           <>
             Preprint, Fourth author{' '}
-            <span className="links">
+            <span className="publication-links">
               [<a href="#" target="_blank" rel="noopener noreferrer">Paper</a>]
             </span>
           </>
