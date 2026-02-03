@@ -7,7 +7,13 @@ function Header() {
         <hr className="title-rule-bottom" />
       </div>
 
-      <img src="/me.webp" alt="Fanyi Pu" className="author-photo" />
+      <img
+        src="/me.webp"
+        alt="Fanyi Pu"
+        className="author-photo"
+        width="100"
+        height="100"
+      />
       <div className="affiliation">
         College of Computing and Data Science<br />
         Nanyang Technological University, Singapore

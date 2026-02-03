@@ -44,3 +44,24 @@ a:hover {
 ::selection {
   background: #b4d5fe;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out, text-decoration-color 0.2s ease-in-out;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+}
