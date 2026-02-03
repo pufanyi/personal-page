@@ -3,9 +3,9 @@
   --text-secondary: #555;
   --link-color: #0066cc;
   --border-color: #000;
-  --background: #fff;
+  --background: #eee;
   --paper-bg: #fff;
-  --paper-shadow: none;
+  --paper-shadow: 0 1px 8px rgba(0, 0, 0, 0.08);
   --font-main: "Computer Modern Serif", "Latin Modern Roman", Georgia, "Times New Roman", serif;
   --font-mono: "Computer Modern Typewriter", "Courier New", monospace;
 }

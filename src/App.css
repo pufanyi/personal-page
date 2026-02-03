@@ -2,18 +2,12 @@
 .paper {
   max-width: 900px;
   width: 92%;
-  margin: 0 auto;
-  padding: 3rem 0 4rem;
+  margin: 2rem auto;
+  padding: 3rem 2.5rem 4rem;
   background: var(--paper-bg);
   box-shadow: var(--paper-shadow);
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-}
-
-[data-theme="dark"] .paper {
-  padding: 3rem 2.5rem 4rem;
   border-radius: 2px;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* ========== Toolbar (theme toggle + print button) ========== */
@@ -354,10 +348,6 @@
 @media (max-width: 600px) {
   .paper {
     width: 94%;
-    padding: 2rem 0 3rem;
-  }
-
-  [data-theme="dark"] .paper {
     padding: 2rem 1.5rem 3rem;
   }
 
