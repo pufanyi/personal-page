@@ -1,0 +1,11 @@
+<button
+  (click)="themeService.toggle()"
+  [attr.aria-label]="'Switch to ' + (themeService.theme() === 'light' ? 'dark' : 'light') + ' mode'"
+  [attr.title]="'Switch to ' + (themeService.theme() === 'light' ? 'dark' : 'light') + ' mode'"
+>
+  @if (themeService.theme() === 'light') {
+    <app-icon name="moon" [size]="20" />
+  } @else {
+    <app-icon name="sun" [size]="20" />
+  }
+</button>

@@ -1,13 +1,19 @@
 # Fanyi Pu - Personal Page
 
-A personal academic homepage built with React, TypeScript, and Vite.
+A personal academic homepage built with Angular 21 and TypeScript.
 
 ## Tech Stack
 
-- React 19
-- TypeScript
-- Vite 7
-- ESLint
+- Angular 21
+- TypeScript 5.9
+- Angular CLI (esbuild)
+
+## Features
+
+- **Paper-style layout** with subtle shadows on both light and dark themes
+- **Dark mode** with localStorage persistence and system preference detection
+- **Table of Contents** sidebar with scroll spy (responsive mobile drawer)
+- **PDF export** via browser print with optimized print styles
 
 ## Prerequisites
 
@@ -34,10 +40,10 @@ pnpm install
 Start the development server:
 
 ```bash
-pnpm dev
+pnpm start
 ```
 
-The site will be available at `http://localhost:5173`.
+The site will be available at `http://localhost:4200`.
 
 ## Build
 
@@ -47,159 +53,85 @@ Build for production:
 pnpm build
 ```
 
-The output will be in the `dist` directory.
-
-### Production Optimizations
-
-The build includes aggressive compression:
-
-- **Terser** minification with `drop_console`, multi-pass compression
-- **Brotli** (level 11) - generates `.br` files, ~14% smaller than Gzip
-- **Gzip** (level 9) - generates `.gz` files as fallback
-- **LightningCSS** for CSS minification
+The output will be in the `dist/personal-page/` directory.
 
 ## Deployment
 
 ### Cloudflare Pages (Recommended)
 
-Cloudflare automatically serves pre-compressed `.br` files and provides global CDN.
+#### Connect GitHub Repository
 
-#### Method 1: Connect GitHub Repository (Recommended)
+1. Push your code to GitHub
 
-1. Push your code to GitHub:
+2. Go to [Cloudflare Dashboard](https://dash.cloudflare.com/) > **Workers & Pages** > **Create** > **Pages** > **Connect to Git**
 
-```bash
-git add .
-git commit -m "Initial commit"
-git push origin main
-```
-
-2. Go to [Cloudflare Dashboard](https://dash.cloudflare.com/) and sign in
-
-3. Navigate to **Workers & Pages** > **Create** > **Pages** > **Connect to Git**
-
-4. Select your GitHub repository and configure:
+3. Select your repository and configure:
 
 | Setting | Value |
 |---------|-------|
 | Production branch | `main` |
 | Build command | `pnpm install && pnpm build` |
-| Build output directory | `dist` |
+| Build output directory | `dist/personal-page/browser` |
 
-5. Click **Save and Deploy**
+4. Click **Save and Deploy**
 
-6. Your site will be available at `https://<project-name>.pages.dev`
+#### Direct Upload
 
-#### Method 2: Direct Upload (Quick Test)
-
-1. Build locally:
-
-```bash
-pnpm build
-```
-
+1. Build locally: `pnpm build`
 2. Go to **Workers & Pages** > **Create** > **Pages** > **Upload assets**
-
-3. Drag and drop the `dist` folder
+3. Upload the `dist/personal-page/browser` folder
 
 #### Custom Domain Setup
 
-**Example: `pufanyi.com` for this site, subdomains for GitHub Pages**
-
-1. Make sure your domain is using Cloudflare DNS (nameservers)
-
-2. In Cloudflare Pages project, go to **Custom domains** > **Set up a custom domain**
-
-3. Enter `pufanyi.com` and follow the prompts
-
-4. Configure DNS records in Cloudflare DNS:
+1. Ensure your domain uses Cloudflare DNS
+2. In your Pages project, go to **Custom domains** > **Set up a custom domain**
+3. Configure DNS records:
 
 ```
-# Root domain -> Cloudflare Pages
 Type: CNAME
 Name: @
 Target: <project-name>.pages.dev
-Proxy: ON (orange cloud)
-
-# Subdomains -> GitHub Pages (example)
-Type: CNAME
-Name: blog
-Target: pufanyi.github.io
 Proxy: ON
-
-# Or use a wildcard for all subdomains
-Type: CNAME
-Name: *
-Target: pufanyi.github.io
-Proxy: ON
-```
-
-5. For GitHub Pages subdomains, add a `CNAME` file in your GitHub repo:
-
-```
-blog.pufanyi.com
-```
-
-6. Wait for SSL certificate provisioning (usually < 5 minutes)
-
-#### Environment Variables (Optional)
-
-If needed, add in **Settings** > **Environment variables**:
-
-| Variable | Value |
-|----------|-------|
-| `NODE_VERSION` | `20` |
-
-### Nginx
-
-Add to your config to serve pre-compressed files:
-
-```nginx
-brotli_static on;
-gzip_static on;
 ```
 
 ### Vercel / Netlify
 
-These platforms handle compression automatically.
-
-## Preview
-
-Preview the production build locally:
-
-```bash
-pnpm preview
-```
-
-## Linting
-
-Run ESLint to check code quality:
-
-```bash
-pnpm lint
-```
+These platforms handle compression and deployment automatically. Set the output directory to `dist/personal-page/browser`.
 
 ## Project Structure
 
 ```
 src/
-├── App.tsx              # Main application component
-├── App.css              # Styles
-├── main.tsx             # Entry point
-├── index.css            # Global styles
-└── components/
-    ├── index.ts         # Component exports
-    ├── Section.tsx      # Reusable section wrapper
-    ├── Entry.tsx        # Reusable entry component
-    ├── Header.tsx       # Title, photo, and contact info
-    ├── Abstract.tsx     # Personal introduction
-    ├── Education.tsx    # Education background
-    ├── Publications.tsx # Publications and research
-    ├── Experience.tsx   # Work experience
-    ├── Competitions.tsx # Competition achievements
-    ├── Teaching.tsx     # Teaching activities
-    ├── Miscellaneous.tsx# Hobbies and other info
-    └── Footer.tsx       # Footer with last updated date
+├── index.html                        # Entry HTML with meta tags and FOUC prevention
+├── main.ts                           # Bootstrap
+├── styles.css                        # Global styles and CSS variables
+└── app/
+    ├── app.ts / app.html / app.css   # Root component
+    ├── app.config.ts                 # Application config
+    ├── components/
+    │   ├── icon/                     # Embedded Phosphor SVG icons
+    │   ├── section/                  # Reusable section wrapper
+    │   ├── entry/                    # Reusable entry with content projection
+    │   ├── header/                   # Title, photo, and contact info
+    │   ├── abstract/                 # Personal introduction
+    │   ├── education/                # Education background
+    │   ├── publications/             # Publications and research
+    │   ├── experience/               # Work experience
+    │   ├── competitions/             # Competition achievements
+    │   ├── teaching/                 # Teaching activities
+    │   ├── miscellaneous/            # Hobbies and other info
+    │   ├── footer/                   # Footer with last updated date
+    │   ├── theme-toggle/             # Dark/light mode toggle
+    │   ├── table-of-contents/        # ToC sidebar with scroll spy
+    │   └── print-button/             # PDF export button
+    ├── services/
+    │   ├── theme.service.ts          # Theme state management with signals
+    │   └── scroll-spy.service.ts     # IntersectionObserver-based scroll spy
+    └── constants/
+        └── sections.ts              # ToC section definitions
+public/
+├── me.webp
+└── assets/pdf/awards/
 ```
 
 ## License
