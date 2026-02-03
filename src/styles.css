@@ -84,7 +84,7 @@ a:hover {
 
   .toolbar,
   .toc,
-  .toc-mobile-toggle,
+  .toc-toggle,
   .toc-backdrop {
     display: none !important;
   }

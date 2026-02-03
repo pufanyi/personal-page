@@ -238,14 +238,41 @@
 }
 
 /* ========== Table of Contents ========== */
+.toc-toggle {
+  display: flex;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1001;
+  background: var(--paper-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  transition: opacity 0.2s, background 0.3s ease;
+}
+
+.toc-toggle:hover {
+  opacity: 0.7;
+}
+
 .toc {
   position: fixed;
-  top: 4rem;
-  left: calc((100vw - 900px) / 2 - 230px);
-  width: 200px;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 100vh;
+  background: var(--paper-bg);
+  padding: 4rem 1.5rem 2rem;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  overflow-y: auto;
   font-size: 0.8rem;
   line-height: 1.5;
-  z-index: 100;
 }
 
 .toc-title {
@@ -289,63 +316,11 @@
   width: 1.5em;
 }
 
-.toc-mobile-toggle {
-  display: none;
-}
-
 .toc-backdrop {
-  display: none;
-}
-
-/* Hide ToC sidebar on narrow screens */
-@media (max-width: 1300px) {
-  .toc {
-    display: none;
-  }
-
-  .toc-mobile-toggle {
-    display: flex;
-    position: fixed;
-    top: 1rem;
-    left: 1rem;
-    z-index: 1001;
-    background: var(--paper-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-color);
-    transition: opacity 0.2s, background 0.3s ease;
-  }
-
-  .toc-mobile-toggle:hover {
-    opacity: 0.7;
-  }
-
-  .toc--open {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 260px;
-    height: 100vh;
-    background: var(--paper-bg);
-    padding: 4rem 1.5rem 2rem;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.15);
-    z-index: 1000;
-    overflow-y: auto;
-  }
-
-  .toc-backdrop {
-    display: block;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.3);
-    z-index: 999;
-  }
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 999;
 }
 
 /* ========== Mobile ========== */

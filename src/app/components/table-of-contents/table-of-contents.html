@@ -1,32 +1,31 @@
 <button
-  class="toc-mobile-toggle"
-  (click)="mobileOpen.set(!mobileOpen())"
+  class="toc-toggle"
+  (click)="toggle()"
   aria-label="Table of Contents"
   title="Table of Contents"
 >
-  @if (mobileOpen()) {
+  @if (open()) {
     <app-icon name="x" [size]="20" />
   } @else {
     <app-icon name="list" [size]="20" />
   }
 </button>
 
-<nav class="toc" [class.toc--open]="mobileOpen()" aria-label="Table of Contents">
-  <div class="toc-title">Contents</div>
-  <ol class="toc-list">
-    @for (s of sections; track s.id) {
-      <li [class.toc-active]="scrollSpy.activeId() === s.id">
-        <a [href]="'#' + s.id" (click)="closeMobile()">
-          @if (s.number !== null) {
-            <span class="toc-number">{{ s.number }}</span>
-          }
-          {{ s.title }}
-        </a>
-      </li>
-    }
-  </ol>
-</nav>
-
-@if (mobileOpen()) {
-  <div class="toc-backdrop" (click)="closeMobile()"></div>
+@if (open()) {
+  <div class="toc-backdrop" (click)="close()"></div>
+  <nav class="toc" aria-label="Table of Contents">
+    <div class="toc-title">Contents</div>
+    <ol class="toc-list">
+      @for (s of sections; track s.id) {
+        <li [class.toc-active]="scrollSpy.activeId() === s.id">
+          <a [href]="'#' + s.id" (click)="close()">
+            @if (s.number !== null) {
+              <span class="toc-number">{{ s.number }}</span>
+            }
+            {{ s.title }}
+          </a>
+        </li>
+      }
+    </ol>
+  </nav>
 }
