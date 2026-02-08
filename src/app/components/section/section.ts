@@ -9,7 +9,12 @@ export class SectionComponent {
   readonly title = input.required<string>();
   readonly id = input<string>();
 
-  sectionId = computed(() =>
-    this.id() ?? this.title().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
+  sectionId = computed(
+    () =>
+      this.id() ??
+      this.title()
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/(^-|-$)/g, ''),
   );
 }

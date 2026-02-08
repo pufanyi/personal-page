@@ -14,7 +14,7 @@ export class ScrollSpyService implements OnDestroy {
     this.observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
-          .filter(e => e.isIntersecting)
+          .filter((e) => e.isIntersecting)
           .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
         if (visible.length > 0) {
           this.activeId.set(visible[0].target.id);
@@ -23,7 +23,7 @@ export class ScrollSpyService implements OnDestroy {
       { rootMargin: '-80px 0px -60% 0px', threshold: 0 },
     );
 
-    ids.forEach(id => {
+    ids.forEach((id) => {
       const el = document.getElementById(id);
       if (el) this.observer!.observe(el);
     });

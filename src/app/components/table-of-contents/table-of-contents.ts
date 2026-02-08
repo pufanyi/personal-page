@@ -44,7 +44,7 @@ export class TableOfContentsComponent implements AfterViewInit, OnInit, OnDestro
   }
 
   ngAfterViewInit(): void {
-    this.scrollSpy.observe(this.sections.map(s => s.id));
+    this.scrollSpy.observe(this.sections.map((s) => s.id));
 
     const btn = this.toggleBtn()?.nativeElement;
     if (btn) autoAnimate(btn);
@@ -54,7 +54,7 @@ export class TableOfContentsComponent implements AfterViewInit, OnInit, OnDestro
   }
 
   toggle(): void {
-    this.open.update(v => !v);
+    this.open.update((v) => !v);
   }
 
   onLinkClick(): void {

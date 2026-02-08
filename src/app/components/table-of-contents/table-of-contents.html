@@ -33,5 +33,12 @@
 </div>
 
 @if (open() && !isWide()) {
-  <div class="toc-backdrop" (click)="open.set(false)"></div>
+  <div
+    class="toc-backdrop"
+    (click)="open.set(false)"
+    (keydown.escape)="open.set(false)"
+    tabindex="-1"
+    role="button"
+    aria-label="Close table of contents"
+  ></div>
 }
