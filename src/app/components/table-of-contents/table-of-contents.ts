@@ -1,6 +1,17 @@
-import { Component, inject, signal, AfterViewInit, OnInit, OnDestroy } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  inject,
+  signal,
+  viewChild,
+  AfterViewInit,
+  OnInit,
+  OnDestroy,
+} from '@angular/core';
 import { SECTIONS } from '../../constants/sections';
 import { ScrollSpyService } from '../../services/scroll-spy.service';
+import autoAnimate from '@formkit/auto-animate';
+
 const WIDE_QUERY = '(min-width: 1301px)';
 
 @Component({
@@ -12,6 +23,9 @@ export class TableOfContentsComponent implements AfterViewInit, OnInit, OnDestro
   readonly open = signal(false);
   readonly isWide = signal(false);
   readonly sections = SECTIONS;
+
+  private toggleBtn = viewChild<ElementRef>('toggleBtn');
+  private tocContainer = viewChild<ElementRef>('tocContainer');
 
   private mql = window.matchMedia(WIDE_QUERY);
   private onMediaChange = (e: MediaQueryListEvent) => {
@@ -31,6 +45,12 @@ export class TableOfContentsComponent implements AfterViewInit, OnInit, OnDestro
 
   ngAfterViewInit(): void {
     this.scrollSpy.observe(this.sections.map(s => s.id));
+
+    const btn = this.toggleBtn()?.nativeElement;
+    if (btn) autoAnimate(btn);
+
+    const container = this.tocContainer()?.nativeElement;
+    if (container) autoAnimate(container);
   }
 
   toggle(): void {

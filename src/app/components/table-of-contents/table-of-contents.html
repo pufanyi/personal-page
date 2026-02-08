@@ -1,4 +1,5 @@
 <button
+  #toggleBtn
   class="toc-toggle"
   (click)="toggle()"
   aria-label="Table of Contents"
@@ -11,21 +12,25 @@
   }
 </button>
 
-<nav class="toc" [class.toc--open]="open()" aria-label="Table of Contents">
-  <div class="toc-title">Contents</div>
-  <ol class="toc-list">
-    @for (s of sections; track s.id) {
-      <li [class.toc-active]="scrollSpy.activeId() === s.id">
-        <a [href]="'#' + s.id" (click)="onLinkClick()">
-          @if (s.number !== null) {
-            <span class="toc-number">{{ s.number }}</span>
-          }
-          {{ s.title }}
-        </a>
-      </li>
-    }
-  </ol>
-</nav>
+<div #tocContainer>
+  @if (open()) {
+    <nav class="toc" aria-label="Table of Contents">
+      <div class="toc-title">Contents</div>
+      <ol class="toc-list">
+        @for (s of sections; track s.id) {
+          <li [class.toc-active]="scrollSpy.activeId() === s.id">
+            <a [href]="'#' + s.id" (click)="onLinkClick()">
+              @if (s.number !== null) {
+                <span class="toc-number">{{ s.number }}</span>
+              }
+              {{ s.title }}
+            </a>
+          </li>
+        }
+      </ol>
+    </nav>
+  }
+</div>
 
 @if (open() && !isWide()) {
   <div class="toc-backdrop" (click)="open.set(false)"></div>
