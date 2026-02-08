@@ -1,13 +1,10 @@
 import { Component, inject, signal, AfterViewInit, OnInit, OnDestroy } from '@angular/core';
 import { SECTIONS } from '../../constants/sections';
 import { ScrollSpyService } from '../../services/scroll-spy.service';
-import { IconComponent } from '../icon/icon';
-
 const WIDE_QUERY = '(min-width: 1301px)';
 
 @Component({
   selector: 'app-table-of-contents',
-  imports: [IconComponent],
   templateUrl: './table-of-contents.html',
 })
 export class TableOfContentsComponent implements AfterViewInit, OnInit, OnDestroy {

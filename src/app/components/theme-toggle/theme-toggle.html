@@ -4,8 +4,8 @@
   [attr.title]="'Switch to ' + (themeService.theme() === 'light' ? 'dark' : 'light') + ' mode'"
 >
   @if (themeService.theme() === 'light') {
-    <app-icon name="moon" [size]="20" />
+    <i class="ph-duotone ph-moon" style="font-size: 20px"></i>
   } @else {
-    <app-icon name="sun" [size]="20" />
+    <i class="ph-duotone ph-sun" style="font-size: 20px"></i>
   }
 </button>
