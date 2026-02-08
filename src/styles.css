@@ -6,8 +6,9 @@
   --background: #eee;
   --paper-bg: #fff;
   --paper-shadow: 0 1px 8px rgba(0, 0, 0, 0.08);
-  --font-main: "Computer Modern Serif", "Latin Modern Roman", Georgia, "Times New Roman", serif;
-  --font-mono: "Computer Modern Typewriter", "Courier New", monospace;
+  --font-body: "Charter", Georgia, "Times New Roman", serif;
+  --font-heading: "Space Grotesk", system-ui, -apple-system, sans-serif;
+  --font-mono: "Courier New", monospace;
 }
 
 [data-theme="dark"] {
@@ -38,7 +39,7 @@ html {
 }
 
 body {
-  font-family: var(--font-main);
+  font-family: var(--font-body);
   font-size: 1rem;
   line-height: 1.6;
   color: var(--text-color);

@@ -52,6 +52,7 @@
             ],
             "styles": [
               "@phosphor-icons/web/duotone/style.css",
+              "charter-webfont/charter.css",
               "src/styles.css"
             ]
           },
