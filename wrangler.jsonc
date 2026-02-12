@@ -1,0 +1,9 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "personal-page",
+  "compatibility_date": "2026-02-12",
+  "assets": {
+    "directory": "./dist/personal-page/browser",
+    "not_found_handling": "404-page"
+  }
+}
