@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Redirecting... | Fanyi Pu</title>
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📄</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap">
+  <style>
+    :root {
+      --text-color: #222;
+      --text-secondary: #555;
+      --link-color: #0066cc;
+      --background: #eee;
+      --paper-bg: #fff;
+      --paper-shadow: 0 1px 8px rgba(0, 0, 0, 0.08);
+      --font-body: "Charter", Georgia, "Times New Roman", serif;
+      --font-heading: "Space Grotesk", system-ui, -apple-system, sans-serif;
+    }
+
+    [data-theme="dark"] {
+      --background: #1a1a1a;
+      --paper-bg: #262626;
+      --text-color: #e0e0e0;
+      --text-secondary: #aaa;
+      --link-color: #6db3f2;
+      --paper-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text-color);
+      background: var(--background);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 480px;
+    }
+
+    h1 {
+      font-family: var(--font-heading);
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    a {
+      color: var(--link-color);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--text-secondary);
+      border-top-color: transparent;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+      vertical-align: middle;
+      margin-right: 0.5rem;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    #status {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+  <script>
+    (function () {
+      var t = localStorage.getItem('theme');
+      if (t === 'dark' || (!t && matchMedia('(prefers-color-scheme:dark)').matches))
+        document.documentElement.setAttribute('data-theme', 'dark');
+    })();
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <div id="checking">
+      <h1>404</h1>
+      <p id="status"><span class="spinner"></span>Checking other pages...</p>
+    </div>
+    <div id="not-found" class="hidden">
+      <h1>404</h1>
+      <p>The page you're looking for doesn't exist.</p>
+      <a href="/">Back to Home</a>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var path = location.pathname + location.search + location.hash;
+
+      // Don't redirect the root path
+      if (path === '/' || path === '') {
+        showNotFound();
+        return;
+      }
+
+      var target = 'https://projects.pufanyi.com' + path;
+
+      fetch(target, { method: 'HEAD', mode: 'cors' })
+        .then(function (res) {
+          if (res.ok) {
+            location.replace(target);
+          } else {
+            showNotFound();
+          }
+        })
+        .catch(function () {
+          // CORS error or network failure — try redirect anyway
+          // since we can't distinguish CORS block from actual 404
+          location.replace(target);
+        });
+
+      // If still here after 3 seconds, show 404
+      setTimeout(showNotFound, 3000);
+
+      function showNotFound() {
+        document.title = '404 | Fanyi Pu';
+        document.getElementById('checking').classList.add('hidden');
+        document.getElementById('not-found').classList.remove('hidden');
+      }
+    })();
+  </script>
+</body>
+
+</html>
