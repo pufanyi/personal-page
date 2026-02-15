@@ -12,6 +12,9 @@ export class ImageLightboxComponent implements OnDestroy {
   readonly width = input<string | number>();
   readonly height = input<string | number>();
   readonly imgClass = input<string>('');
+  readonly avif = input<string>();
+  readonly webp = input<string>();
+  readonly loading = input<'eager' | 'lazy'>('eager');
 
   private readonly img = viewChild.required<ElementRef<HTMLImageElement>>('img');
   private zoom: Zoom | null = null;
