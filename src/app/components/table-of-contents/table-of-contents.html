@@ -14,7 +14,14 @@
 
 <div #tocContainer>
   @if (open()) {
-    <nav class="toc" aria-label="Table of Contents">
+    <nav
+      class="toc"
+      aria-label="Table of Contents"
+      cdkTrapFocus
+      [cdkTrapFocusAutoCapture]="!isWide()"
+      (keydown.escape)="open.set(false)"
+      tabindex="-1"
+    >
       <div class="toc-title">{{ tocTitle[lang()] }}</div>
       <ol class="toc-list">
         @for (s of sections; track s.id) {

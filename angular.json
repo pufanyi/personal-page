@@ -51,6 +51,7 @@
               }
             ],
             "styles": [
+              "modern-normalize/modern-normalize.css",
               "@phosphor-icons/web/duotone/style.css",
               "charter-webfont/charter.css",
               "src/styles.css"
