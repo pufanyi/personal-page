@@ -33,7 +33,9 @@
   <script>
     (function(){var t=localStorage.getItem('theme');
     if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme:dark)').matches))
-    document.documentElement.setAttribute('data-theme','dark')})();
+    document.documentElement.setAttribute('data-theme','dark');
+    var l=localStorage.getItem('lang');
+    if(l==='zh'||l==='ja')document.documentElement.setAttribute('lang',l)})();
   </script>
 </head>
 

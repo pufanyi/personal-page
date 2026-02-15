@@ -1,0 +1,18 @@
+<div class="lang-switcher">
+  <button (click)="toggle()" aria-label="Switch language" title="Switch language">
+    <i class="ph-duotone ph-translate" style="font-size: 20px"></i>
+  </button>
+  @if (open()) {
+    <div class="lang-dropdown">
+      @for (l of languages; track l.code) {
+        <button
+          class="lang-option"
+          [class.lang-active]="langService.current() === l.code"
+          (click)="select(l.code)"
+        >
+          {{ l.label }}
+        </button>
+      }
+    </div>
+  }
+</div>

@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.html',
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  protected readonly lang = inject(LanguageService).current;
+}

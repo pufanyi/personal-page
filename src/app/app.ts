@@ -11,6 +11,7 @@ import { FooterComponent } from './components/footer/footer';
 import { ThemeToggleComponent } from './components/theme-toggle/theme-toggle';
 import { TableOfContentsComponent } from './components/table-of-contents/table-of-contents';
 import { PrintButtonComponent } from './components/print-button/print-button';
+import { LanguageSwitcherComponent } from './components/language-switcher/language-switcher';
 
 @Component({
   selector: 'app-root',
@@ -27,6 +28,7 @@ import { PrintButtonComponent } from './components/print-button/print-button';
     ThemeToggleComponent,
     TableOfContentsComponent,
     PrintButtonComponent,
+    LanguageSwitcherComponent,
   ],
   templateUrl: './app.html',
   styleUrl: './app.css',

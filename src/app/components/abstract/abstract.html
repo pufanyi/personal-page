@@ -1,31 +1,95 @@
 <section class="abstract" id="abstract">
-  <h2 class="abstract-heading">Abstract</h2>
-  <div class="abstract-content">
-    <p>
-      I am currently a final-year undergraduate student at <a href="https://www.ntu.edu.sg/" target="_blank" rel="noopener noreferrer">Nanyang Technological University</a>,
-      specializing in <a href="https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-science-in-data-science-artificial-intelligence" target="_blank" rel="noopener noreferrer">Data Science and Artificial Intelligence</a>.
-    </p>
-    <p>
-      I am currently doing research at <a href="https://www.sensetime.com/en" target="_blank" rel="noopener noreferrer">SenseTime</a> and <a href="https://www.mmlab-ntu.com/" target="_blank" rel="noopener noreferrer">MMLab&#64;NTU</a>.
-      I am fortunate to be supervised by <a href="https://liuziwei7.github.io/" target="_blank" rel="noopener noreferrer">Prof. Ziwei Liu</a>,
-      I am also grateful for the extensive help I have received from <a href="https://brianboli.com/" target="_blank" rel="noopener noreferrer">Bo Li</a>,
-      <a href="https://caizhongang.com/" target="_blank" rel="noopener noreferrer">Zhongang Cai</a> and <a href="https://scholar.google.com/citations?user=jZH2IPYAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Lei Yang</a>.
-      My research interests currently lie in <em>multi-modality (unified) models</em> and <em>spatial intelligence</em>.
-    </p>
-    <p>
-      During my time at <a href="http://www.sxyz.net/" target="_blank" rel="noopener noreferrer">Shaoxing No.1 High School</a>,
-      I participated in the <a href="https://www.noi.cn/" target="_blank" rel="noopener noreferrer">Olympiad in Informatics</a>.
-      Additionally, I competed in the <a href="https://icpc.global/" target="_blank" rel="noopener noreferrer">ICPC</a> competition,
-      where I earned a <a href="assets/pdf/awards/Kunming.pdf" target="_blank" rel="noopener noreferrer">gold medal</a> in the 2022 Kunming Asia Regional Contest
-      and a <a href="assets/pdf/awards/Nanjing.pdf" target="_blank" rel="noopener noreferrer">silver medal</a> in the 2022 Nanjing Asia Regional Contest.
-      I am a contributor to the <a href="https://ntu-icpc.github.io/npc/" target="_blank" rel="noopener noreferrer">Nanyang Programming Contest</a>.
-    </p>
-    <p>
-      I like to play chess, my Lichess ID is <a href="https://lichess.org/@/pufanyi" target="_blank" rel="noopener noreferrer">&#64;pufanyi</a>, my current rating is 2086 (rapid).
-    </p>
-  </div>
-  <div class="keywords">
-    <span class="keywords-label">Keywords: </span>
-    Spatial Intelligence · Unified Multimodal Models · Vision-Language Models · Deep Learning
-  </div>
+  <h2 class="abstract-heading">{{ t.abstract[lang()] }}</h2>
+  @switch (lang()) {
+    @case ('zh') {
+      <div class="abstract-content">
+        <p>
+          我目前是<a href="https://www.ntu.edu.sg/" target="_blank" rel="noopener noreferrer">南洋理工大学</a>的大四本科生，
+          主修<a href="https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-science-in-data-science-artificial-intelligence" target="_blank" rel="noopener noreferrer">数据科学与人工智能</a>。
+        </p>
+        <p>
+          我目前在<a href="https://www.sensetime.com/en" target="_blank" rel="noopener noreferrer">商汤科技</a>和<a href="https://www.mmlab-ntu.com/" target="_blank" rel="noopener noreferrer">MMLab&#64;NTU</a>进行研究。
+          我有幸在<a href="https://liuziwei7.github.io/" target="_blank" rel="noopener noreferrer">刘子纬教授</a>的指导下学习，
+          也非常感谢<a href="https://brianboli.com/" target="_blank" rel="noopener noreferrer">李博</a>、
+          <a href="https://caizhongang.com/" target="_blank" rel="noopener noreferrer">蔡忠刚</a>和<a href="https://scholar.google.com/citations?user=jZH2IPYAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">杨磊</a>给予我的大量帮助。
+          我目前的研究方向是<em>多模态（统一）模型</em>和<em>空间智能</em>。
+        </p>
+        <p>
+          在<a href="http://www.sxyz.net/" target="_blank" rel="noopener noreferrer">绍兴市第一中学</a>期间，
+          我参加了<a href="https://www.noi.cn/" target="_blank" rel="noopener noreferrer">信息学奥林匹克竞赛</a>。
+          此外，我参加了<a href="https://icpc.global/" target="_blank" rel="noopener noreferrer">ICPC</a>竞赛，
+          在2022年昆明亚洲区域赛中获得<a href="assets/pdf/awards/Kunming.pdf" target="_blank" rel="noopener noreferrer">金牌</a>，
+          在2022年南京亚洲区域赛中获得<a href="assets/pdf/awards/Nanjing.pdf" target="_blank" rel="noopener noreferrer">银牌</a>。
+          我是<a href="https://ntu-icpc.github.io/npc/" target="_blank" rel="noopener noreferrer">南洋编程竞赛</a>的贡献者。
+        </p>
+        <p>
+          我喜欢下棋，我的 Lichess ID 是 <a href="https://lichess.org/@/pufanyi" target="_blank" rel="noopener noreferrer">&#64;pufanyi</a>，目前快棋等级分为 2086。
+        </p>
+      </div>
+      <div class="keywords">
+        <span class="keywords-label">关键词：</span>
+        空间智能 · 统一多模态模型 · 视觉-语言模型 · 深度学习
+      </div>
+    }
+    @case ('ja') {
+      <div class="abstract-content">
+        <p>
+          現在、<a href="https://www.ntu.edu.sg/" target="_blank" rel="noopener noreferrer">南洋理工大学</a>の最終学年の学部生で、
+          <a href="https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-science-in-data-science-artificial-intelligence" target="_blank" rel="noopener noreferrer">データサイエンスと人工知能</a>を専攻しています。
+        </p>
+        <p>
+          現在、<a href="https://www.sensetime.com/en" target="_blank" rel="noopener noreferrer">SenseTime</a>および<a href="https://www.mmlab-ntu.com/" target="_blank" rel="noopener noreferrer">MMLab&#64;NTU</a>で研究を行っています。
+          <a href="https://liuziwei7.github.io/" target="_blank" rel="noopener noreferrer">Liu Ziwei教授</a>のご指導のもと研究する機会に恵まれ、
+          また、<a href="https://brianboli.com/" target="_blank" rel="noopener noreferrer">Bo Li</a>、
+          <a href="https://caizhongang.com/" target="_blank" rel="noopener noreferrer">Zhongang Cai</a>、<a href="https://scholar.google.com/citations?user=jZH2IPYAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Lei Yang</a>からも多大なご支援をいただいています。
+          現在の研究テーマは、<em>マルチモーダル（統合）モデル</em>と<em>空間知能</em>です。
+        </p>
+        <p>
+          <a href="http://www.sxyz.net/" target="_blank" rel="noopener noreferrer">紹興市第一高等学校</a>在学中、
+          <a href="https://www.noi.cn/" target="_blank" rel="noopener noreferrer">情報オリンピック</a>に参加しました。
+          また、<a href="https://icpc.global/" target="_blank" rel="noopener noreferrer">ICPC</a>に出場し、
+          2022年昆明アジア地区大会で<a href="assets/pdf/awards/Kunming.pdf" target="_blank" rel="noopener noreferrer">金メダル</a>、
+          2022年南京アジア地区大会で<a href="assets/pdf/awards/Nanjing.pdf" target="_blank" rel="noopener noreferrer">銀メダル</a>を獲得しました。
+          <a href="https://ntu-icpc.github.io/npc/" target="_blank" rel="noopener noreferrer">Nanyang Programming Contest</a>のコントリビューターです。
+        </p>
+        <p>
+          趣味はチェスで、Lichess の ID は <a href="https://lichess.org/@/pufanyi" target="_blank" rel="noopener noreferrer">&#64;pufanyi</a> です。現在のレーティングは 2086（ラピッド）です。
+        </p>
+      </div>
+      <div class="keywords">
+        <span class="keywords-label">キーワード：</span>
+        空間知能 · 統合マルチモーダルモデル · 視覚言語モデル · 深層学習
+      </div>
+    }
+    @default {
+      <div class="abstract-content">
+        <p>
+          I am currently a final-year undergraduate student at <a href="https://www.ntu.edu.sg/" target="_blank" rel="noopener noreferrer">Nanyang Technological University</a>,
+          specializing in <a href="https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-science-in-data-science-artificial-intelligence" target="_blank" rel="noopener noreferrer">Data Science and Artificial Intelligence</a>.
+        </p>
+        <p>
+          I am currently doing research at <a href="https://www.sensetime.com/en" target="_blank" rel="noopener noreferrer">SenseTime</a> and <a href="https://www.mmlab-ntu.com/" target="_blank" rel="noopener noreferrer">MMLab&#64;NTU</a>.
+          I am fortunate to be supervised by <a href="https://liuziwei7.github.io/" target="_blank" rel="noopener noreferrer">Prof. Ziwei Liu</a>,
+          I am also grateful for the extensive help I have received from <a href="https://brianboli.com/" target="_blank" rel="noopener noreferrer">Bo Li</a>,
+          <a href="https://caizhongang.com/" target="_blank" rel="noopener noreferrer">Zhongang Cai</a> and <a href="https://scholar.google.com/citations?user=jZH2IPYAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Lei Yang</a>.
+          My research interests currently lie in <em>multi-modality (unified) models</em> and <em>spatial intelligence</em>.
+        </p>
+        <p>
+          During my time at <a href="http://www.sxyz.net/" target="_blank" rel="noopener noreferrer">Shaoxing No.1 High School</a>,
+          I participated in the <a href="https://www.noi.cn/" target="_blank" rel="noopener noreferrer">Olympiad in Informatics</a>.
+          Additionally, I competed in the <a href="https://icpc.global/" target="_blank" rel="noopener noreferrer">ICPC</a> competition,
+          where I earned a <a href="assets/pdf/awards/Kunming.pdf" target="_blank" rel="noopener noreferrer">gold medal</a> in the 2022 Kunming Asia Regional Contest
+          and a <a href="assets/pdf/awards/Nanjing.pdf" target="_blank" rel="noopener noreferrer">silver medal</a> in the 2022 Nanjing Asia Regional Contest.
+          I am a contributor to the <a href="https://ntu-icpc.github.io/npc/" target="_blank" rel="noopener noreferrer">Nanyang Programming Contest</a>.
+        </p>
+        <p>
+          I like to play chess, my Lichess ID is <a href="https://lichess.org/@/pufanyi" target="_blank" rel="noopener noreferrer">&#64;pufanyi</a>, my current rating is 2086 (rapid).
+        </p>
+      </div>
+      <div class="keywords">
+        <span class="keywords-label">Keywords: </span>
+        Spatial Intelligence · Unified Multimodal Models · Vision-Language Models · Deep Learning
+      </div>
+    }
+  }
 </section>

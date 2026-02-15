@@ -10,9 +10,12 @@ import {
 } from '@angular/core';
 import { SECTIONS } from '../../constants/sections';
 import { ScrollSpyService } from '../../services/scroll-spy.service';
+import { LanguageService, Lang } from '../../services/language.service';
 import autoAnimate from '@formkit/auto-animate';
 
 const WIDE_QUERY = '(min-width: 1301px)';
+
+const TOC_TITLE: Record<Lang, string> = { en: 'Contents', zh: '目录', ja: '目次' };
 
 @Component({
   selector: 'app-table-of-contents',
@@ -20,9 +23,11 @@ const WIDE_QUERY = '(min-width: 1301px)';
 })
 export class TableOfContentsComponent implements AfterViewInit, OnInit, OnDestroy {
   readonly scrollSpy = inject(ScrollSpyService);
+  readonly lang = inject(LanguageService).current;
   readonly open = signal(false);
   readonly isWide = signal(false);
   readonly sections = SECTIONS;
+  readonly tocTitle = TOC_TITLE;
 
   private toggleBtn = viewChild<ElementRef>('toggleBtn');
   private tocContainer = viewChild<ElementRef>('tocContainer');
