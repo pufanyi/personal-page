@@ -286,6 +286,17 @@
   color: var(--text-secondary);
 }
 
+.footer-source {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.35rem;
+}
+
+.footer-github-link {
+  font-size: 18px;
+}
+
 /* ========== Table of Contents ========== */
 .toc-toggle {
   display: flex;
