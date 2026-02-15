@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, ElementRef, HostListener, inject, signal } from '@angular/core';
 import { LanguageService, Lang } from '../../services/language.service';
 
 @Component({
@@ -7,6 +7,7 @@ import { LanguageService, Lang } from '../../services/language.service';
 })
 export class LanguageSwitcherComponent {
   readonly langService = inject(LanguageService);
+  private readonly elementRef = inject(ElementRef<HTMLElement>);
   readonly open = signal(false);
 
   readonly languages: { code: Lang; label: string }[] = [
@@ -15,16 +16,34 @@ export class LanguageSwitcherComponent {
     { code: 'ja', label: '日本語' },
   ];
 
-  show(): void {
-    this.open.set(true);
+  readonly triggerLabel: Record<Lang, string> = {
+    en: 'Language: English',
+    zh: '语言：中文',
+    ja: '言語：日本語',
+  };
+
+  toggle(): void {
+    this.open.update((value) => !value);
   }
 
-  hide(): void {
+  close(): void {
     this.open.set(false);
   }
 
   select(lang: Lang): void {
     this.langService.set(lang);
-    this.open.set(false);
+    this.close();
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: Event): void {
+    if (!this.elementRef.nativeElement.contains(event.target as Node)) {
+      this.close();
+    }
+  }
+
+  @HostListener('document:keydown.escape')
+  onEscape(): void {
+    this.close();
   }
 }
