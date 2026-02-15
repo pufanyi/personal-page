@@ -1,11 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  afterNextRender,
-  input,
-  viewChild,
-  OnDestroy,
-} from '@angular/core';
+import { Component, ElementRef, afterNextRender, input, viewChild, OnDestroy } from '@angular/core';
 import mediumZoom, { Zoom } from 'medium-zoom';
 
 @Component({
@@ -20,8 +13,7 @@ export class ImageLightboxComponent implements OnDestroy {
   readonly height = input<string | number>();
   readonly imgClass = input<string>('');
 
-  private readonly img =
-    viewChild.required<ElementRef<HTMLImageElement>>('img');
+  private readonly img = viewChild.required<ElementRef<HTMLImageElement>>('img');
   private zoom: Zoom | null = null;
 
   constructor() {
