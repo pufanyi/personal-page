@@ -1,0 +1,13 @@
+<img
+  [src]="src()"
+  [alt]="alt()"
+  [width]="width()"
+  [height]="height()"
+  [class]="imgClass()"
+  class="lightbox-trigger"
+  (click)="open()"
+/>
+
+<dialog #dialog (click)="onBackdropClick($event)">
+  <img [src]="src()" [alt]="alt()" class="lightbox-image" (click)="close()" />
+</dialog>
