@@ -1,5 +1,5 @@
-<div class="lang-switcher">
-  <button (click)="toggle()" aria-label="Switch language" title="Switch language">
+<div class="lang-switcher" (mouseenter)="show()" (mouseleave)="hide()">
+  <button aria-label="Switch language" title="Switch language">
     <i class="ph-duotone ph-translate" style="font-size: 20px"></i>
   </button>
   @if (open()) {

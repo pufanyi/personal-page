@@ -1,4 +1,4 @@
-import { Component, inject, signal, ElementRef, HostListener } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { LanguageService, Lang } from '../../services/language.service';
 
 @Component({
@@ -7,7 +7,6 @@ import { LanguageService, Lang } from '../../services/language.service';
 })
 export class LanguageSwitcherComponent {
   readonly langService = inject(LanguageService);
-  private readonly el = inject(ElementRef);
   readonly open = signal(false);
 
   readonly languages: { code: Lang; label: string }[] = [
@@ -16,19 +15,16 @@ export class LanguageSwitcherComponent {
     { code: 'ja', label: '日本語' },
   ];
 
-  toggle(): void {
-    this.open.update((v) => !v);
+  show(): void {
+    this.open.set(true);
+  }
+
+  hide(): void {
+    this.open.set(false);
   }
 
   select(lang: Lang): void {
     this.langService.set(lang);
     this.open.set(false);
-  }
-
-  @HostListener('document:click', ['$event'])
-  onDocumentClick(event: Event): void {
-    if (this.open() && !this.el.nativeElement.contains(event.target)) {
-      this.open.set(false);
-    }
   }
 }
