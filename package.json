@@ -33,6 +33,7 @@
     "@formkit/auto-animate": "^0.9.0",
     "@phosphor-icons/web": "^2.1.2",
     "charter-webfont": "^4.1.0",
+    "medium-zoom": "^1.1.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },
