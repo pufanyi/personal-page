@@ -7,16 +7,16 @@ export interface TocEntry {
 }
 
 export const SECTION_TITLES = {
-  abstract: { en: 'Abstract', zh: '摘要', ja: '概要' },
+  abstract: { en: 'Abstract', zh: '个人简介', ja: '自己紹介' },
   education: { en: 'Education', zh: '教育经历', ja: '学歴' },
   publications: {
     en: 'Publications & Research Projects',
-    zh: '论文与研究项目',
+    zh: '发表论文与科研项目',
     ja: '論文・研究プロジェクト',
   },
-  experience: { en: 'Experience', zh: '工作经历', ja: '経歴' },
-  competitions: { en: 'Competitions', zh: '竞赛', ja: 'コンテスト' },
-  teaching: { en: 'Teaching & Activities', zh: '教学与活动', ja: '教育・活動' },
+  experience: { en: 'Experience', zh: '工作与实习经历', ja: '職歴' },
+  competitions: { en: 'Competitions', zh: '竞赛获奖', ja: 'コンテスト・受賞歴' },
+  teaching: { en: 'Teaching & Activities', zh: '教学与学术活动', ja: 'ティーチング・学術活動' },
   miscellaneous: { en: 'Miscellaneous', zh: '其他', ja: 'その他' },
 } satisfies Record<string, Record<Lang, string>>;
 
