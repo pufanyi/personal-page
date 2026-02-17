@@ -45,7 +45,9 @@ export class TableOfContentsComponent implements AfterViewInit {
     this.open.update((v) => !v);
   }
 
-  onLinkClick(): void {
+  scrollTo(event: Event, id: string): void {
+    event.preventDefault();
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     if (!this.isWide()) {
       this.open.set(false);
     }
