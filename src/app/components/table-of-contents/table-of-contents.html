@@ -25,12 +25,12 @@
   <ol class="toc-list">
     @for (s of sections; track s.id) {
       <li [class.toc-active]="scrollSpy.activeId() === s.id">
-        <a [href]="'#' + s.id" (click)="scrollTo($event, s.id)">
+        <button type="button" class="toc-link" (click)="navigateTo(s.id)">
           @if (s.number !== null) {
             <span class="toc-number">{{ s.number }}</span>
           }
           {{ s.title[lang()] }}
-        </a>
+        </button>
       </li>
     }
   </ol>

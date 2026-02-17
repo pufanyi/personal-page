@@ -370,18 +370,30 @@
   margin-bottom: 0.3rem;
 }
 
-.toc-list a {
+.toc-link {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
   color: var(--text-secondary);
   text-decoration: none;
-  transition: color 0.2s;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
 }
 
-.toc-list a:hover {
+.toc-link:hover {
   color: var(--text-color);
   text-decoration: none;
 }
 
-.toc-active a {
+.toc-link:focus-visible {
+  outline: 2px solid var(--link-color);
+  outline-offset: 2px;
+}
+
+.toc-active .toc-link {
   color: var(--text-color);
   font-weight: bold;
 }

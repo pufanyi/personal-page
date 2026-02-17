@@ -45,11 +45,29 @@ export class TableOfContentsComponent implements AfterViewInit {
     this.open.update((v) => !v);
   }
 
-  scrollTo(event: Event, id: string): void {
-    event.preventDefault();
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  navigateTo(id: string): void {
+    const el = document.getElementById(id);
+    if (el) {
+      this.smoothScrollTo(el);
+      history.replaceState(null, '', `#${id}`);
+    }
+
     if (!this.isWide()) {
-      this.open.set(false);
+      setTimeout(() => this.open.set(false), 150);
+    }
+  }
+
+  private smoothScrollTo(el: HTMLElement): void {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      el.scrollIntoView();
+      return;
+    }
+
+    try {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } catch {
+      const y = el.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo(0, y);
     }
   }
 }
