@@ -1,5 +1,5 @@
 <button
-  #toggleBtn
+  autoAnimate
   class="toc-toggle"
   (click)="toggle()"
   aria-label="Table of Contents"
@@ -12,7 +12,7 @@
   }
 </button>
 
-<div #tocContainer>
+<div autoAnimate>
   @if (open()) {
     <nav
       class="toc"

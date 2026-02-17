@@ -1,4 +1,5 @@
 <button
+  autoAnimate
   (click)="themeService.toggle()"
   [attr.aria-label]="'Switch to ' + (themeService.theme() === 'light' ? 'dark' : 'light') + ' mode'"
   [attr.title]="'Switch to ' + (themeService.theme() === 'light' ? 'dark' : 'light') + ' mode'"

@@ -1,8 +1,10 @@
 import { Component, ElementRef, HostListener, inject, signal } from '@angular/core';
 import { LanguageService, Lang } from '../../services/language.service';
+import { AutoAnimateDirective } from '../../directives/auto-animate';
 
 @Component({
   selector: 'app-language-switcher',
+  imports: [AutoAnimateDirective],
   templateUrl: './language-switcher.html',
 })
 export class LanguageSwitcherComponent {

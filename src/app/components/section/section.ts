@@ -1,7 +1,9 @@
 import { Component, computed, input } from '@angular/core';
+import { AutoAnimateDirective } from '../../directives/auto-animate';
 
 @Component({
   selector: 'app-section',
+  imports: [AutoAnimateDirective],
   templateUrl: './section.html',
 })
 export class SectionComponent {

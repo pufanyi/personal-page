@@ -1,20 +1,12 @@
-import {
-  Component,
-  ElementRef,
-  effect,
-  inject,
-  signal,
-  viewChild,
-  AfterViewInit,
-} from '@angular/core';
+import { Component, effect, inject, signal, AfterViewInit } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs';
 import { SECTIONS } from '../../constants/sections';
 import { ScrollSpyService } from '../../services/scroll-spy.service';
 import { LanguageService, Lang } from '../../services/language.service';
-import autoAnimate from '@formkit/auto-animate';
 import { A11yModule } from '@angular/cdk/a11y';
+import { AutoAnimateDirective } from '../../directives/auto-animate';
 
 const WIDE_QUERY = '(min-width: 1301px)';
 
@@ -23,7 +15,7 @@ const TOC_TITLE: Record<Lang, string> = { en: 'Contents', zh: '目录', ja: '目
 @Component({
   selector: 'app-table-of-contents',
   templateUrl: './table-of-contents.html',
-  imports: [A11yModule],
+  imports: [A11yModule, AutoAnimateDirective],
 })
 export class TableOfContentsComponent implements AfterViewInit {
   readonly scrollSpy = inject(ScrollSpyService);
@@ -31,9 +23,6 @@ export class TableOfContentsComponent implements AfterViewInit {
   readonly open = signal(false);
   readonly sections = SECTIONS;
   readonly tocTitle = TOC_TITLE;
-
-  private toggleBtn = viewChild<ElementRef>('toggleBtn');
-  private tocContainer = viewChild<ElementRef>('tocContainer');
 
   readonly isWide = toSignal(
     inject(BreakpointObserver)
@@ -50,12 +39,6 @@ export class TableOfContentsComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.scrollSpy.observe(this.sections.map((s) => s.id));
-
-    const btn = this.toggleBtn()?.nativeElement;
-    if (btn) autoAnimate(btn);
-
-    const container = this.tocContainer()?.nativeElement;
-    if (container) autoAnimate(container);
   }
 
   toggle(): void {
