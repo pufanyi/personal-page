@@ -1,4 +1,4 @@
-import { Component, effect, inject, signal, AfterViewInit } from '@angular/core';
+import { Component, effect, inject, signal, AfterViewInit, OnDestroy } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs';
@@ -17,12 +17,13 @@ const TOC_TITLE: Record<Lang, string> = { en: 'Contents', zh: '目录', ja: '目
   templateUrl: './table-of-contents.html',
   imports: [A11yModule, AutoAnimateDirective],
 })
-export class TableOfContentsComponent implements AfterViewInit {
+export class TableOfContentsComponent implements AfterViewInit, OnDestroy {
   readonly scrollSpy = inject(ScrollSpyService);
   readonly lang = inject(LanguageService).current;
   readonly open = signal(false);
   readonly sections = SECTIONS;
   readonly tocTitle = TOC_TITLE;
+  private scrollAnimationFrameId: number | null = null;
 
   readonly isWide = toSignal(
     inject(BreakpointObserver)
@@ -39,6 +40,13 @@ export class TableOfContentsComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.scrollSpy.observe(this.sections.map((s) => s.id));
+  }
+
+  ngOnDestroy(): void {
+    if (this.scrollAnimationFrameId !== null) {
+      cancelAnimationFrame(this.scrollAnimationFrameId);
+      this.scrollAnimationFrameId = null;
+    }
   }
 
   toggle(): void {
@@ -58,16 +66,36 @@ export class TableOfContentsComponent implements AfterViewInit {
   }
 
   private smoothScrollTo(el: HTMLElement): void {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      el.scrollIntoView();
+    const targetY = el.getBoundingClientRect().top + window.scrollY;
+    const startY = window.scrollY;
+    const deltaY = targetY - startY;
+
+    if (Math.abs(deltaY) < 1) {
+      window.scrollTo(0, targetY);
       return;
     }
 
-    try {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } catch {
-      const y = el.getBoundingClientRect().top + window.scrollY;
-      window.scrollTo(0, y);
+    if (this.scrollAnimationFrameId !== null) {
+      cancelAnimationFrame(this.scrollAnimationFrameId);
     }
+
+    const durationMs = 420;
+    const startTime = performance.now();
+    const easeInOutCubic = (t: number): number =>
+      t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+    const tick = (now: number): void => {
+      const progress = Math.min((now - startTime) / durationMs, 1);
+      const eased = easeInOutCubic(progress);
+      window.scrollTo(0, startY + deltaY * eased);
+
+      if (progress < 1) {
+        this.scrollAnimationFrameId = requestAnimationFrame(tick);
+      } else {
+        this.scrollAnimationFrameId = null;
+      }
+    };
+
+    this.scrollAnimationFrameId = requestAnimationFrame(tick);
   }
 }
