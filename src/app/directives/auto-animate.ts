@@ -2,7 +2,7 @@ import { AfterViewInit, Directive, ElementRef, inject } from '@angular/core';
 import autoAnimate from '@formkit/auto-animate';
 
 @Directive({
-  selector: '[autoAnimate]',
+  selector: '[appAutoAnimate]',
 })
 export class AutoAnimateDirective implements AfterViewInit {
   private el = inject(ElementRef<HTMLElement>);
