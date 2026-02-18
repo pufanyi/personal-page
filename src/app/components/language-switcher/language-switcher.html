@@ -7,7 +7,7 @@
     [attr.aria-expanded]="open()"
     aria-haspopup="menu"
   >
-    <i class="ph-duotone ph-translate" style="font-size: 20px"></i>
+    <i class="ph ph-translate" style="font-size: 20px"></i>
   </button>
   @if (open()) {
     <div class="lang-dropdown" role="menu">
@@ -21,7 +21,7 @@
         >
           <span>{{ l.label }}</span>
           @if (langService.current() === l.code) {
-            <i class="ph-duotone ph-check" style="font-size: 14px"></i>
+            <i class="ph ph-check" style="font-size: 14px"></i>
           }
         </button>
       }

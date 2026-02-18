@@ -52,7 +52,7 @@
             ],
             "styles": [
               "modern-normalize/modern-normalize.css",
-              "@phosphor-icons/web/duotone/style.css",
+              "@phosphor-icons/web/regular/style.css",
 
               "src/styles.css"
             ]
