@@ -45,7 +45,7 @@
     (function(){
     var p=location.pathname;
     if(p==='/blog'||p.startsWith('/blog/'))
-    {location.replace('https://blog.pufanyi.com'+p.slice(5));return}
+    {location.replace('https://blog.pufanyi.com'+p);return}
     var t=localStorage.getItem('theme');
     if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme:dark)').matches))
     document.documentElement.setAttribute('data-theme','dark');
