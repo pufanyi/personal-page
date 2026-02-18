@@ -28,7 +28,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap">
   <title>Fanyi Pu | Personal Page</title>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-J24E18Z6T0"></script>
@@ -42,7 +42,11 @@
     gtag('config', 'G-J24E18Z6T0');
   </script>
   <script>
-    (function(){var t=localStorage.getItem('theme');
+    (function(){
+    var p=location.pathname;
+    if(p==='/blog'||p.startsWith('/blog/'))
+    {location.replace('https://blog.pufanyi.com'+p.slice(5));return}
+    var t=localStorage.getItem('theme');
     if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme:dark)').matches))
     document.documentElement.setAttribute('data-theme','dark');
     var l=localStorage.getItem('lang');
