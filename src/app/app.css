@@ -20,7 +20,7 @@
   gap: 0.5rem;
 }
 
-.toolbar button {
+.toolbar .toolbar-btn {
   background: var(--paper-bg);
   border: 1px solid var(--border-color);
   border-radius: 50%;
@@ -35,17 +35,13 @@
   font-family: var(--font-heading);
 }
 
-.toolbar button:hover {
+.toolbar .toolbar-btn:hover {
   opacity: 0.7;
 }
 
 /* ========== Language Switcher ========== */
 .lang-switcher {
   position: relative;
-}
-
-.toolbar .lang-trigger {
-  padding: 0;
 }
 
 .lang-dropdown {
