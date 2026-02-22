@@ -1,4 +1,5 @@
 <button
+  class="toolbar-btn"
   appAutoAnimate
   (click)="themeService.toggle()"
   [attr.aria-label]="'Switch to ' + (themeService.theme() === 'light' ? 'dark' : 'light') + ' mode'"
